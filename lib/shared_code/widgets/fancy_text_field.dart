@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shared_code/shared_code/constants/colors.dart';
-import 'package:shared_code/shared_code/constants/sizes.dart';
-import 'package:shared_code/shared_code/constants/styles.dart';
-import 'package:shared_code/shared_code/widgets/custom_text_field.dart';
+import 'package:shared_code/shared_code.dart';
 
 class FancyTextField extends StatefulWidget {
   final String hint;
@@ -67,7 +64,7 @@ class _FancyTextFieldState extends State<FancyTextField> {
       maxLines: widget.maxLines,
       obscureText: !passwordShown && widget.password,
       color: Colors.red,
-      backgroundColor: LightThemeColors.textFieldBackgroundColor,
+      backgroundColor: customColors.textFieldBackgroundColor,
       borderColor: Colors.transparent,
       textStyle: h4LiteTextStyle,
       borderRadius: BorderRadius.circular(mediumBorderRadius),
@@ -122,7 +119,7 @@ class TextFieldLeadingIcon extends StatelessWidget {
         iconPath!,
         width: mediumIconSize * .8,
         colorFilter: ColorFilter.mode(
-          LightThemeColors.kBlueColor,
+          customColors.blueColor,
           BlendMode.srcIn,
         ),
       ),

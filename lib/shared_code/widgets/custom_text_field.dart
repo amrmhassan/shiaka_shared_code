@@ -2,12 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_code/shared_code/constants/colors.dart';
-import 'package:shared_code/shared_code/constants/sizes.dart';
-import 'package:shared_code/shared_code/constants/styles.dart';
-
-import 'h_space.dart';
-import 'padding_wrapper.dart';
+import 'package:shared_code/shared_code.dart';
 
 class CustomTextField extends StatelessWidget {
   final String title;
@@ -37,10 +32,12 @@ class CustomTextField extends StatelessWidget {
   final String? initialValue;
   final Widget? trailingIcon;
   final int? maxLength;
-  final Widget? Function(BuildContext,
-      {required int currentLength,
-      required bool isFocused,
-      required int? maxLength})? buildCounter;
+  final Widget? Function(
+    BuildContext, {
+    required int currentLength,
+    required bool isFocused,
+    required int? maxLength,
+  })? buildCounter;
   final BoxDecoration? decoration;
   final Function(String v)? onSubmitted;
   final Color? backgroundColor;
@@ -106,7 +103,7 @@ class CustomTextField extends StatelessWidget {
                   '*',
                   style: TextStyle(
                     height: 1,
-                    color: LightThemeColors.kDangerColor,
+                    color: customColors.dangerColor,
                     fontSize: h2TextSize,
                     fontWeight: FontWeight.bold,
                   ),
@@ -121,8 +118,8 @@ class CustomTextField extends StatelessWidget {
                         border: Border.all(
                           width: 1,
                           color: errorText == null
-                              ? (borderColor ?? LightThemeColors.kInactiveColor)
-                              : LightThemeColors.kDangerColor,
+                              ? (borderColor ?? customColors.inactiveColor)
+                              : customColors.dangerColor,
                         ),
                       ),
                   padding: EdgeInsets.symmetric(
@@ -138,8 +135,8 @@ class CustomTextField extends StatelessWidget {
                           'assets/icons/$iconName.png',
                           width: mediumIconSize,
                           color: errorText == null
-                              ? (color ?? LightThemeColors.kInactiveColor)
-                              : LightThemeColors.kDangerColor,
+                              ? (color ?? customColors.inactiveColor)
+                              : customColors.dangerColor,
                         )
                       else if (leadingIcon != null)
                         leadingIcon!,
@@ -172,7 +169,7 @@ class CustomTextField extends StatelessWidget {
                               hintStyle: errorText == null
                                   ? (hintStyle ?? h3LiteTextStyle)
                                   : h3LiteTextStyle.copyWith(
-                                      color: LightThemeColors.kDangerColor,
+                                      color: customColors.dangerColor,
                                     ),
                             ),
                           ),
@@ -185,8 +182,8 @@ class CustomTextField extends StatelessWidget {
                           child: Image.asset(
                             'assets/icons/$trailingIconName.png',
                             width: mediumIconSize,
-                            color: trailingIconColor ??
-                                LightThemeColors.kInactiveColor,
+                            color:
+                                trailingIconColor ?? customColors.inactiveColor,
                           ),
                         ),
                       if (trailingIconWidget != null) trailingIconWidget!
@@ -199,8 +196,7 @@ class CustomTextField extends StatelessWidget {
           if (errorText != null)
             Text(
               errorText.toString(),
-              style: h4LiteTextStyle.copyWith(
-                  color: LightThemeColors.kDangerColor),
+              style: h4LiteTextStyle.copyWith(color: customColors.dangerColor),
             ),
         ],
       ),

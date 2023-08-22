@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:shared_code/shared_code/constants/colors.dart';
-
-import 'sizes.dart';
+import 'package:shared_code/shared_code.dart';
 
 //? text styles
 //@ h1 text styles
@@ -28,7 +26,7 @@ TextStyle h2TextStyle = TextStyle(
   fontSize: h2TextSize,
   fontWeight: FontWeight.bold,
   fontFamily: 'Cairo',
-  color: TextColors.kActiveTextColor,
+  color: customColors.activeTextColor,
 );
 TextStyle h2liteTextStyle = TextStyle(
   fontSize: h2TextSize,
@@ -43,19 +41,19 @@ TextStyle h2LightTextStyle = TextStyle(
 //@ h3 text styles
 TextStyle h3TextStyle = TextStyle(
   fontSize: h3TextSize,
-  color: TextColors.kActiveTextColor,
+  color: customColors.activeTextColor,
   fontWeight: FontWeight.bold,
   fontFamily: 'Cairo',
 );
 TextStyle h3LiteTextStyle = TextStyle(
-  color: LightThemeColors.kInactiveColor,
+  color: customColors.inactiveColor,
   fontSize: h3TextSize,
   fontFamily: 'Cairo',
 );
 TextStyle h3InactiveTextStyle = TextStyle(
   fontSize: h3TextSize,
   fontFamily: 'Cairo',
-  color: TextColors.kInActiveTextColor,
+  color: customColors.inactiveTextColor,
 );
 TextStyle h3LightTextStyle = TextStyle(
   fontSize: h3TextSize,
@@ -68,18 +66,18 @@ TextStyle h4TextStyle = TextStyle(
   fontSize: h4TextSize,
   fontWeight: FontWeight.bold,
   fontFamily: 'Cairo',
-  color: TextColors.kActiveTextColor,
+  color: customColors.activeTextColor,
 );
 TextStyle h4TextStyleInactive = TextStyle(
   fontSize: h4TextSize,
   fontWeight: FontWeight.w400,
-  color: TextColors.kInActiveTextColor,
+  color: customColors.inactiveTextColor,
   fontFamily: 'Cairo',
 );
 TextStyle h4LiteTextStyle = TextStyle(
   fontSize: h4TextSize,
   fontFamily: 'Cairo',
-  color: TextColors.kActiveTextColor,
+  color: customColors.activeTextColor,
 );
 TextStyle h4LightTextStyle = TextStyle(
   fontSize: h4TextSize,
@@ -95,7 +93,7 @@ TextStyle h5TextStyle = TextStyle(
 );
 TextStyle h5InactiveTextStyle = TextStyle(
   fontSize: h5TextSize,
-  color: TextColors.kInActiveTextColor,
+  color: customColors.inactiveTextColor,
   fontFamily: 'Cairo',
 );
 TextStyle h5LightTextStyle = TextStyle(
