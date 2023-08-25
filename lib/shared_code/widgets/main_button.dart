@@ -14,6 +14,7 @@ class MainButton extends StatelessWidget {
   final EdgeInsets? padding;
   final Color? backgroundColor;
   final TextStyle? style;
+  final Widget? icon;
 
   const MainButton({
     required this.onTap,
@@ -27,6 +28,7 @@ class MainButton extends StatelessWidget {
     this.padding,
     this.backgroundColor,
     this.style,
+    this.icon,
   });
 
   @override
@@ -44,10 +46,20 @@ class MainButton extends StatelessWidget {
       borderRadius: 1000,
       backgroundColor: backgroundColor ?? customColors.blueColor,
       child: child ??
-          Text(
-            title ?? '',
-            style: style ?? h2LightTextStyle,
-          ),
+          (icon == null
+              ? Text(
+                  title ?? '',
+                  style: style ?? h2LightTextStyle,
+                )
+              : Row(
+                  children: [
+                    icon!,
+                    Text(
+                      title ?? '',
+                      style: style ?? h2LightTextStyle,
+                    )
+                  ],
+                )),
     );
   }
 }

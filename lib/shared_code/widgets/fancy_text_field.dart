@@ -18,6 +18,7 @@ class FancyTextField extends StatefulWidget {
   final bool enabled;
   final int? maxLines;
   final Widget? leading;
+  final EdgeInsets? padding;
 
   const FancyTextField({
     super.key,
@@ -34,6 +35,7 @@ class FancyTextField extends StatefulWidget {
     this.enabled = true,
     this.maxLines,
     this.leading,
+    this.padding,
   });
 
   @override
@@ -75,7 +77,7 @@ class _FancyTextFieldState extends State<FancyTextField> {
                   iconPath: widget.iconPath,
                 )),
       trailingIcon: widget.trailingIcon ?? passwordEye(),
-      padding: EdgeInsets.symmetric(horizontal: kHPad / 2),
+      padding: widget.padding ?? EdgeInsets.symmetric(horizontal: kHPad / 2),
     );
   }
 
