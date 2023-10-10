@@ -15,6 +15,8 @@ class MainButton extends StatelessWidget {
   final Color? backgroundColor;
   final TextStyle? style;
   final Widget? icon;
+  final double? borerRadius;
+  final Border? border;
 
   const MainButton({
     required this.onTap,
@@ -29,11 +31,14 @@ class MainButton extends StatelessWidget {
     this.backgroundColor,
     this.style,
     this.icon,
+    this.borerRadius,
+    this.border,
   });
 
   @override
   Widget build(BuildContext context) {
     return ButtonWrapper(
+      alignment: Alignment.center,
       width: width,
       height: height,
       active: active,
@@ -43,7 +48,8 @@ class MainButton extends StatelessWidget {
             horizontal: kHPad,
             vertical: kVPad / 2,
           ),
-      borderRadius: 1000,
+      borderRadius: borerRadius ?? 1000,
+      border: border,
       backgroundColor: backgroundColor ?? customColors.blueColor,
       child: child ??
           (icon == null

@@ -26,7 +26,7 @@ StoreModel _$StoreModelFromJson(Map<String, dynamic> json) => StoreModel(
       distance: (json['distance'] as num?)?.toDouble(),
       desc: json['desc'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
-      storeTabs: (json['storeTabs'] as List<dynamic>?)
+      tabsParam: (json['storeTabs'] as List<dynamic>?)
               ?.map((e) => StoreTabModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           defaultStoreTabs,

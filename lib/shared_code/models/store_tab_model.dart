@@ -5,11 +5,11 @@ part 'store_tab_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 class StoreTabModel {
   final String id;
-  final String title;
+  String title;
   final List<String> productsIds;
   final bool allProducts;
 
-  const StoreTabModel({
+  StoreTabModel({
     required this.id,
     required this.productsIds,
     required this.title,

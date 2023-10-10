@@ -19,6 +19,8 @@ class FancyTextField extends StatefulWidget {
   final int? maxLines;
   final Widget? leading;
   final EdgeInsets? padding;
+  final String? hidePasswordSvgPath;
+  final String? showPasswordSvgPath;
 
   const FancyTextField({
     super.key,
@@ -36,6 +38,8 @@ class FancyTextField extends StatefulWidget {
     this.maxLines,
     this.leading,
     this.padding,
+    this.hidePasswordSvgPath,
+    this.showPasswordSvgPath,
   });
 
   @override
@@ -86,14 +90,14 @@ class _FancyTextFieldState extends State<FancyTextField> {
         ? GestureDetector(
             onTap: togglePasswordShown,
             child: SvgPicture.asset(
-              'assets/svg/eye-closed.svg',
+              widget.hidePasswordSvgPath ?? 'assets/svg/eye-closed.svg',
             ),
           )
         : widget.password && !passwordShown
             ? GestureDetector(
                 onTap: togglePasswordShown,
                 child: SvgPicture.asset(
-                  'assets/svg/eye-open.svg',
+                  widget.showPasswordSvgPath ?? 'assets/svg/eye-open.svg',
                 ),
               )
             : null;

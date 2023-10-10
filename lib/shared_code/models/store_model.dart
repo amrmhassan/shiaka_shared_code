@@ -15,7 +15,7 @@ class StoreModel {
   String coverImagePath;
   int followers;
   final double? rating;
-  List<StoreTabModel> storeTabs;
+  late List<StoreTabModel> storeTabs;
   final List<String> phones;
   final List<String> emails;
   final String? address;
@@ -36,6 +36,7 @@ class StoreModel {
     required this.creatorUserUID,
     required this.phones,
     required this.emails,
+    List<StoreTabModel>? tabsParam,
     this.address,
     this.logoImagePath,
     this.location,
@@ -43,8 +44,9 @@ class StoreModel {
     this.distance,
     this.desc,
     this.rating,
-    this.storeTabs = defaultStoreTabs,
-  });
+  }) {
+    storeTabs = tabsParam ?? defaultStoreTabs;
+  }
 
   factory StoreModel.fromJson(Map<String, dynamic> json) =>
       _$StoreModelFromJson(json);

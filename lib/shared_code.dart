@@ -28,3 +28,4 @@ export './shared_code/validation/user_info_validation.dart';
 
 //? models
 export './shared_code/models/ads_model.dart';
+export './shared_code/models/brand_model.dart';

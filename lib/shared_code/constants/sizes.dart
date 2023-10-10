@@ -30,3 +30,4 @@ const double roundIconRadius = 60;
 const double smallBorderRadius = 5;
 const double mediumBorderRadius = 10;
 const double largeBorderRadius = 20;
+const double ultraLargeBorderRadius = 30;
