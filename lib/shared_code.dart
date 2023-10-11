@@ -18,6 +18,8 @@ export './shared_code/widgets/v_p_space.dart';
 export './shared_code/widgets/v_space.dart';
 export './shared_code/widgets/main_button.dart';
 export './shared_code/widgets/screen_wrapper.dart';
+export './shared_code/widgets/double_modal_button.dart';
+export './shared_code/widgets/modal_wrapper.dart';
 
 //? data
 export './shared_code/data/runtime_variables.dart';
