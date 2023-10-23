@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:shared_code/shared_code/constants/sizes.dart';
 import 'package:shared_code/shared_code/widgets/button_wrapper.dart';
@@ -20,9 +21,10 @@ class CustomCard extends StatelessWidget {
   final BoxDecoration? decoration;
   final EdgeInsets? padding;
   final Color? shadowColor;
+  final Alignment? alignment;
 
   const CustomCard({
-    super.key,
+    Key? key,
     required this.child,
     this.onTap,
     this.hPadFactor,
@@ -37,11 +39,13 @@ class CustomCard extends StatelessWidget {
     this.decoration,
     this.padding,
     this.shadowColor,
-  });
+    this.alignment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ButtonWrapper(
+      alignment: alignment,
       clipBehavior: clipBehavior,
       margin: margin,
       onTap: onTap,

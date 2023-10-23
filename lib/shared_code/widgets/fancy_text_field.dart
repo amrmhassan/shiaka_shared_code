@@ -17,6 +17,7 @@ class FancyTextField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final bool enabled;
   final int? maxLines;
+  final int? minLines;
   final Widget? leading;
   final EdgeInsets? padding;
   final String? hidePasswordSvgPath;
@@ -36,6 +37,7 @@ class FancyTextField extends StatefulWidget {
     this.textInputAction,
     this.enabled = true,
     this.maxLines,
+    this.minLines,
     this.leading,
     this.padding,
     this.hidePasswordSvgPath,
@@ -57,6 +59,7 @@ class _FancyTextFieldState extends State<FancyTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      minLines: widget.minLines,
       title: widget.hint,
       enabled: widget.enabled,
       errorText: widget.errorText,
