@@ -17,6 +17,7 @@ class MainButton extends StatelessWidget {
   final Widget? icon;
   final double? borerRadius;
   final Border? border;
+  final EdgeInsets? margin;
 
   const MainButton({
     required this.onTap,
@@ -33,11 +34,13 @@ class MainButton extends StatelessWidget {
     this.icon,
     this.borerRadius,
     this.border,
+    this.margin,
   });
 
   @override
   Widget build(BuildContext context) {
     return ButtonWrapper(
+      margin: margin,
       alignment: Alignment.center,
       width: width,
       height: height,
