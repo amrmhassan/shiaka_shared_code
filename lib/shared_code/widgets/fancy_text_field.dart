@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shared_code/shared_code.dart';
 
@@ -22,6 +23,7 @@ class FancyTextField extends StatefulWidget {
   final EdgeInsets? padding;
   final String? hidePasswordSvgPath;
   final String? showPasswordSvgPath;
+  final List<TextInputFormatter>? inputFormatters;
 
   const FancyTextField({
     super.key,
@@ -42,6 +44,7 @@ class FancyTextField extends StatefulWidget {
     this.padding,
     this.hidePasswordSvgPath,
     this.showPasswordSvgPath,
+    this.inputFormatters,
   });
 
   @override
@@ -59,6 +62,7 @@ class _FancyTextFieldState extends State<FancyTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      inputFormatters: [],
       minLines: widget.minLines,
       title: widget.hint,
       enabled: widget.enabled,
