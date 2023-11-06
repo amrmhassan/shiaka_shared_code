@@ -62,7 +62,7 @@ class _FancyTextFieldState extends State<FancyTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      inputFormatters: [],
+      inputFormatters: widget.inputFormatters,
       minLines: widget.minLines,
       title: widget.hint,
       enabled: widget.enabled,
