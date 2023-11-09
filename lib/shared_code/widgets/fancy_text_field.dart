@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -24,16 +25,24 @@ class FancyTextField extends StatefulWidget {
   final String? hidePasswordSvgPath;
   final String? showPasswordSvgPath;
   final List<TextInputFormatter>? inputFormatters;
+  final double? borderRadius;
+  final Color? backgroundColor;
+  final InputDecoration? inputDecoration;
+  final BoxDecoration? decoration;
+  final FocusNode? focusNode;
+  final Color? eyeColor;
+  final TextStyle? textStyle;
+  final TextStyle? hintStyle;
 
   const FancyTextField({
-    super.key,
+    Key? key,
     required this.hint,
     this.iconPath,
-    this.onChange,
     this.inputType,
     this.password = false,
-    this.controller,
     this.autoFocus = false,
+    this.onChange,
+    this.controller,
     this.errorText,
     this.trailingIcon,
     this.textInputAction,
@@ -45,7 +54,15 @@ class FancyTextField extends StatefulWidget {
     this.hidePasswordSvgPath,
     this.showPasswordSvgPath,
     this.inputFormatters,
-  });
+    this.borderRadius,
+    this.backgroundColor,
+    this.inputDecoration,
+    this.decoration,
+    this.focusNode,
+    this.eyeColor,
+    this.textStyle,
+    this.hintStyle,
+  }) : super(key: key);
 
   @override
   State<FancyTextField> createState() => _FancyTextFieldState();
@@ -62,6 +79,9 @@ class _FancyTextFieldState extends State<FancyTextField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      focusNode: widget.focusNode,
+      decoration: widget.decoration,
+      inputDecoration: widget.inputDecoration,
       inputFormatters: widget.inputFormatters,
       minLines: widget.minLines,
       title: widget.hint,
@@ -76,28 +96,33 @@ class _FancyTextFieldState extends State<FancyTextField> {
       handleShowPassword: togglePasswordShown,
       maxLines: widget.maxLines,
       obscureText: !passwordShown && widget.password,
-      color: Colors.red,
-      backgroundColor: customColors.textFieldBackgroundColor,
+      backgroundColor:
+          widget.backgroundColor ?? customColors.textFieldBackgroundColor,
       borderColor: Colors.transparent,
-      textStyle: h4LiteTextStyle,
-      borderRadius: BorderRadius.circular(mediumBorderRadius),
+      textStyle: widget.textStyle ?? h4LiteTextStyle,
+      hintStyle: widget.hintStyle,
+      borderRadius:
+          BorderRadius.circular(widget.borderRadius ?? mediumBorderRadius),
       leadingIcon: widget.leading ??
           (widget.iconPath == null
               ? null
               : TextFieldLeadingIcon(
                   iconPath: widget.iconPath,
                 )),
-      trailingIcon: widget.trailingIcon ?? passwordEye(),
+      trailingIcon: widget.trailingIcon ?? passwordEye(widget.eyeColor),
       padding: widget.padding ?? EdgeInsets.symmetric(horizontal: kHPad / 2),
     );
   }
 
-  Widget? passwordEye() {
+  Widget? passwordEye(Color? eyeColor) {
     return widget.password && passwordShown
         ? GestureDetector(
             onTap: togglePasswordShown,
             child: SvgPicture.asset(
               widget.hidePasswordSvgPath ?? 'assets/svg/eye-closed.svg',
+              colorFilter: eyeColor == null
+                  ? null
+                  : ColorFilter.mode(eyeColor, BlendMode.srcIn),
             ),
           )
         : widget.password && !passwordShown
@@ -105,6 +130,10 @@ class _FancyTextFieldState extends State<FancyTextField> {
                 onTap: togglePasswordShown,
                 child: SvgPicture.asset(
                   widget.showPasswordSvgPath ?? 'assets/svg/eye-open.svg',
+                  color: eyeColor,
+                  colorFilter: eyeColor == null
+                      ? null
+                      : ColorFilter.mode(eyeColor, BlendMode.srcIn),
                 ),
               )
             : null;

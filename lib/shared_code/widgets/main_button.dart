@@ -5,7 +5,7 @@ import 'package:shared_code/shared_code.dart';
 
 class MainButton extends StatelessWidget {
   final String? title;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool active;
   final double? width;
   final double? height;
@@ -20,7 +20,7 @@ class MainButton extends StatelessWidget {
   final EdgeInsets? margin;
 
   const MainButton({
-    required this.onTap,
+    this.onTap,
     super.key,
     this.title,
     this.active = true,

@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -46,17 +47,18 @@ class CustomTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final List<TextInputFormatter>? inputFormatters;
   final CrossAxisAlignment? crossAxisAlignment;
+  final InputDecoration? inputDecoration;
 
   const CustomTextField({
     Key? key,
-    this.iconName,
     required this.title,
+    this.iconName,
     this.onChange,
     this.trailingIconName,
+    this.trailingIconWidget,
     this.color,
     this.borderColor,
     this.padding,
-    this.trailingIconWidget,
     this.trailingIconColor,
     this.autoFocus = false,
     this.controller,
@@ -76,7 +78,6 @@ class CustomTextField extends StatelessWidget {
     this.initialValue,
     this.trailingIcon,
     this.maxLength,
-    this.buildCounter,
     this.decoration,
     this.onSubmitted,
     this.backgroundColor,
@@ -85,6 +86,8 @@ class CustomTextField extends StatelessWidget {
     this.focusNode,
     this.inputFormatters,
     this.crossAxisAlignment,
+    this.inputDecoration,
+    this.buildCounter,
   }) : super(key: key);
 
   @override
@@ -163,15 +166,16 @@ class CustomTextField extends StatelessWidget {
                             autofocus: autoFocus,
                             keyboardType: keyboardType,
                             style: textStyle ?? h3LiteTextStyle,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: title,
-                              hintStyle: errorText == null
-                                  ? (hintStyle ?? h3LiteTextStyle)
-                                  : h3LiteTextStyle.copyWith(
-                                      color: customColors.dangerColor,
-                                    ),
-                            ),
+                            decoration: inputDecoration ??
+                                InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: title,
+                                  hintStyle: errorText == null
+                                      ? (hintStyle ?? h3LiteTextStyle)
+                                      : h3LiteTextStyle.copyWith(
+                                          color: customColors.dangerColor,
+                                        ),
+                                ),
                           ),
                         ),
                       ),
